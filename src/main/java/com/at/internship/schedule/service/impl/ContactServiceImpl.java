@@ -6,13 +6,13 @@ import com.at.internship.schedule.repository.IContactRepository;
 import com.at.internship.schedule.service.IContactService;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class ContactServiceImpl implements IContactService {
-
     private final IContactRepository contactRepository;
 
     public ContactServiceImpl(
