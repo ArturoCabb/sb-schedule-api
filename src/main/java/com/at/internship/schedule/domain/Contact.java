@@ -9,6 +9,14 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
 @Data
 @NoArgsConstructor
 @Entity
@@ -32,7 +40,7 @@ public class Contact {
     private List<ContactPhone> phoneNumbers;
 
     public Contact(Contact source) {
-        if(source == null)
+        if (source == null)
             return;
         this.id = source.id;
         this.firstName = source.firstName;
@@ -40,12 +48,15 @@ public class Contact {
         this.emailAddress = source.emailAddress;
         this.phoneNumber = source.phoneNumber;
         this.birthDay = source.birthDay;
+        this.phoneNumbers = source.phoneNumbers;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Contact)) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof Contact))
+            return false;
         Contact contact = (Contact) o;
         return id.equals(contact.id);
     }

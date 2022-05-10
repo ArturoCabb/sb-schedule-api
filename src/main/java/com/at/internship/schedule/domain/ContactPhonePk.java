@@ -1,13 +1,17 @@
 package com.at.internship.schedule.domain;
 
-import lombok.Data;
-
-import javax.persistence.Embeddable;
 import java.io.Serializable;
 
+import javax.persistence.Embeddable;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+
+import lombok.Data;
+
 @Data
-@Embeddable
-public class ContactPhonePk implements Serializable {
+@Entity
+public class ContactPhonePK implements Serializable {
+    @Embedded
     private Integer contactId;
     private String phoneNumber;
 }

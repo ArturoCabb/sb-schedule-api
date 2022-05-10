@@ -4,10 +4,14 @@ import com.at.internship.schedule.domain.Contact;
 import com.at.internship.lib.repository.AbstractRepository;
 import com.at.internship.schedule.repository.IContactRepository;
 import com.at.internship.schedule.serialization.csv.ContactSerializer;
+
+import org.springframework.stereotype.Component;
+
 import com.at.internship.lib.specification.SpecificationUtils;
 
 import java.util.List;
 
+@Component
 @Deprecated
 public class CsvContactRepository extends AbstractRepository<Contact, Integer> {
     private static int ID_SEQUENCE = 0;

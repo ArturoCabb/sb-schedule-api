@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 @Component
 @SuppressWarnings("unused")
-public class MockAppointmentRepositoryImpl implements IAppointmentRepository {
+public class MockAppointmentRepositoryImpl{
 
     private static final List<Appointment> APPOINTMENT_LIST;
 

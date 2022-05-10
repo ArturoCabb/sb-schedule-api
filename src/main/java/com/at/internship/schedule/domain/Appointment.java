@@ -6,13 +6,23 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+import javax.persistence.*;
+
 @Data
 @NoArgsConstructor
+@Entity
 public class Appointment {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+    @Column(nullable = false)
     private Integer contactId;
+    @Column(insertable = false, updatable = false)
     private LocalDateTime time;
+    @Column(nullable = false)
     private String subject;
+    @Embedded
+    @Transient
     private Contact contact;
 
     public Appointment(Appointment source) {

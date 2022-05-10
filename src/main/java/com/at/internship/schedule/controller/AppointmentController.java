@@ -4,6 +4,8 @@ import com.at.internship.schedule.converter.AppointmentConverter;
 import com.at.internship.schedule.dto.AppointmentDto;
 import com.at.internship.schedule.service.IAppointmentService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,5 +34,10 @@ public class AppointmentController {
                 .stream()
                 .map(appointmentConverter::toAppointmentDto)
                 .collect(Collectors.toList());
+    }
+
+    @PostMapping("/new")
+    public AppointmentDto create(@RequestBody AppointmentDto appointment) {
+        return appointmentConverter.toAppointmentDto(appointmentService.create(appointmentConverter.toAppointment(appointment)));
     }
 }

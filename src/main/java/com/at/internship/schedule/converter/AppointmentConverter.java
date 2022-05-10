@@ -34,4 +34,13 @@ public class AppointmentConverter {
                 contact.getLastName() == null ? "" : contact.getLastName()).trim();
     }
 
+    public Appointment toAppointment(AppointmentDto appointmentDto) {
+        Appointment appointment = new Appointment();
+        appointment.setId(appointmentDto.getId());
+        appointment.setContactId(appointmentDto.getContactId());
+        appointment.setTime(dateUtils.parseDefaultDateTime(appointmentDto.getTime()));
+        appointment.setSubject(appointmentDto.getSubject());
+        return appointment;
+    }
+
 }
